@@ -1,0 +1,33 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG_2B_POE_PART_1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="PROG_2B_POE_PART_1.Home"
+        mc:Ignorable="d"
+        Title="Home" Height="844" Width="1070" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid x:Name="Header" Background="#FFF9F9F9">
+
+
+            <Grid HorizontalAlignment="Center" Height="742" Margin="0,86,0,0" VerticalAlignment="Top" Width="1070" Background="#FFF9F9F9">
+                <Image HorizontalAlignment="Left" Height="175" Margin="202,173,0,0" VerticalAlignment="Top" Width="351" RenderTransformOrigin="2.125,0.543" Source="/Images/logo.png"/>
+                <Label Content="Want to stay up to date with your studies?" HorizontalAlignment="Left" Margin="202,368,0,0" VerticalAlignment="Top" Width="558" FontSize="26" FontWeight="Bold" Height="162"/>
+                <Button x:Name="Register" Content="Get started today" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Height="66" Width="254" Background="#FF37C5BB" BorderBrush="#FF2ECFE4" Click="Register_btn_Click" Foreground="#DDFFFFFF" Margin="202,449,0,0"/>
+                <Label Content="YOUR STUDY TRACKER" HorizontalAlignment="Left" Margin="202,138,0,0" VerticalAlignment="Top" Height="30" Width="262" FontSize="18"/>
+                <TextBox x:Name="ModuleFormHeading_Copy" VerticalAlignment="Top" FontSize="100" FontWeight="Bold" Height="133" BorderBrush="{x:Null}" Padding="26,0,26,0" Foreground="#FF081F1F" Margin="364,194,104,0" Text=" RC.STUDY" CaretBrush="{x:Null}" SelectionBrush="White"/>
+            </Grid>
+
+            <Grid Margin="0,0,0,718">
+                <Button x:Name="Login_btn" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Height="48" Width="90" Background="{x:Null}" BorderBrush="#FF272323" Click="Login_btn_Click_1" Foreground="#DD100E0E" Margin="799,22,0,0"/>
+                <Image HorizontalAlignment="Left" Height="66" Margin="206,0,0,0" VerticalAlignment="Center" Width="80" Source="/Images/logo.png" RenderTransformOrigin="2.125,0.543"/>
+                <Label x:Name="ModuleFormHeading" VerticalAlignment="Center" FontSize="40" FontWeight="Bold" Height="57" BorderBrush="{x:Null}" Padding="26,0,26,0" Foreground="#FF081F1F" Margin="264,0,506,0" Content=" RC.STUDY" />
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>

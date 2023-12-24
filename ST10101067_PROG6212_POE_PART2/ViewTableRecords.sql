@@ -1,0 +1,32 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [STUDENT_USERNAME]
+      ,[STUDENT_PASSWORD]
+  FROM [StudentData].[dbo].[STUDENT]
+
+  SELECT TOP (1000) [MODULE_ID]
+      ,[MODULE_CODE]
+      ,[MODULE_NAME]
+      ,[MODULE_CREDITS]
+      ,[CLASS_HOURS_PER_WEEK]
+      ,[STUDENT_USERNAME]
+  FROM [StudentData].[dbo].[MODULE]
+
+  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [SEMESTER_ID]
+      ,[SEMESTER_WEEKS]
+      ,[SEMESTER_START_DATE]
+      ,[SEMESTER_END_DATE]
+      ,[STUDENT_USERNAME]
+ FROM [StudentData].[dbo].[SEMESTER]
+
+  SELECT TOP (1000) [STUDY_ID]
+      ,[SELF_STUDY_HOURS_PER_WEEK]
+      ,[SELECTED_DATE]
+      ,[START_TIME]
+      ,[END_TIME]
+      ,[HOURS_STUDIED]
+      ,[STUDY_HOURS_REMAINDING]
+      ,[CURRENT_WEEK]
+      ,[MODULE_CODE]
+      ,[STUDENT_USERNAME]
+  FROM [StudentData].[dbo].[STUDY]

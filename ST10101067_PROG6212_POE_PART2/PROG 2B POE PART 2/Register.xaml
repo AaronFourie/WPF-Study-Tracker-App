@@ -1,0 +1,41 @@
+﻿<Window x:Class="PROG_2B_POE_PART_1.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG_2B_POE_PART_1" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:externdll1="clr-namespace:ModuleLibrary1;assembly=ModuleLibrary1"
+        mc:Ignorable="d"
+        Title="Regsiter" Height="844" Width="1070" Background="WhiteSmoke" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <externdll1:Account/>
+    </Window.DataContext>
+
+    <Grid Background="white" Margin="0,0,0,13">
+        <Grid Margin="10,0,0,709">
+            <Button x:Name="Homebtn" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" Height="47" Width="110" Background="White" BorderBrush="#FF2D2C2C" Click="Homebtn_Click" Foreground="#DD212020" Margin="780,22,0,0"/>
+            <Image HorizontalAlignment="Left" Height="70" Margin="206,10,0,0" VerticalAlignment="Top" Width="80" Source="/logo.png" RenderTransformOrigin="2.125,0.543"/>
+        </Grid>
+        <Grid Margin="281,206,302,0" Background="white" Height="525" VerticalAlignment="Top">
+
+            <Grid Margin="0,0,560,10">
+                <Grid Margin="32,35,-471,176" >
+                    <Label x:Name="Usernamelbl" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Left" FontSize="20" Width="381" Height="36" FontWeight="Normal" FontStyle="Normal" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Username" Text="{Binding Username, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="20,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" FontSize="18" Height="38"/>
+                    <Label x:Name="CreatePasswordlbl" Content="Create a Password" HorizontalAlignment="Left" Margin="20,99,0,0" VerticalAlignment="Top" FontSize="20" Width="381"/>
+                    <PasswordBox x:Name="Password1" MaxLength = "8" HorizontalAlignment="Left" Margin="20,139,0,0" VerticalAlignment="Top" Width="381" FontSize="18" Height="38"/>
+                    <Label x:Name="ConfirmPasswordlbl" Content="Confirm password" HorizontalAlignment="Left" Margin="20,199,0,0" VerticalAlignment="Top" FontSize="20" Width="381"/>
+                </Grid>
+            </Grid>
+            <PasswordBox x:Name="Password2" HorizontalAlignment="Center" Margin="0,280,0,0" VerticalAlignment="Top" Width="374" FontSize="18" Height="38"/>
+            <Label x:Name="LoginOptionMsg" Content="Already have an account?" HorizontalAlignment="Left" Margin="49,432,0,0" VerticalAlignment="Top" FontSize="20" Foreground="gray" Width="259"/>
+            <Button x:Name="Loginbtn" Content="Login" HorizontalAlignment="Left" Margin="320,429,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold" Height="41" Width="103" Background="White" BorderBrush="{x:Null}" Click="Loginbtn_Click" Foreground="#FF37C5BB"/>
+
+        </Grid>
+        <Grid x:Name="Header" Margin="0,170,0,549">
+            <TextBox x:Name="ResgisterFormHeading" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Height="78" Padding="26,0,26,0" Foreground="#FF3C3939" Margin="305,-30,319,0" Text="Create your account" Background="{x:Null}"/>
+        </Grid>
+        <Button x:Name="Registerbtn" Content="Register" HorizontalAlignment="Left" Margin="330,563,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold" Height="56" Width="375" Background="#FF37C5BB" BorderBrush="{x:Null}" Click="Registerbtn_Click"/>
+       
+    </Grid>
+</Window>

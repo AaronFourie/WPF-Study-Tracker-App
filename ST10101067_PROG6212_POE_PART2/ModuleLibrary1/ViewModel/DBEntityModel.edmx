@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudentDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_ID" />
+          </Key>
+          <Property Name="MODULE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MODULE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODULE_NAME" Type="varchar" MaxLength="150" />
+          <Property Name="MODULE_CREDITS" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CLASS_HOURS_PER_WEEK" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="STUDENT_USERNAME" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEMESTER">
+          <Key>
+            <PropertyRef Name="SEMESTER_ID" />
+          </Key>
+          <Property Name="SEMESTER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SEMESTER_WEEKS" Type="int" />
+          <Property Name="SEMESTER_START_DATE" Type="date" />
+          <Property Name="SEMESTER_END_DATE" Type="date" />
+          <Property Name="STUDENT_USERNAME" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="STUDENT_USERNAME" />
+          </Key>
+          <Property Name="STUDENT_USERNAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="STUDENT_PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STUDY">
+          <Key>
+            <PropertyRef Name="STUDY_ID" />
+          </Key>
+          <Property Name="STUDY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SELF_STUDY_HOURS_PER_WEEK" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SELECTED_DATE" Type="date" />
+          <Property Name="START_TIME" Type="datetime" />
+          <Property Name="END_TIME" Type="datetime" />
+          <Property Name="HOURS_STUDIED" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="STUDY_HOURS_REMAINDING" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CURRENT_WEEK" Type="int" />
+          <Property Name="MODULE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="STUDENT_USERNAME" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__MODULE__STUDENT___2EA5EC27">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="MODULE" Type="Self.MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="MODULE">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEMESTER__STUDEN__318258D2">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="SEMESTER" Type="Self.SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="SEMESTER">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STUDY__STUDENT_U__345EC57D">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="STUDY" Type="Self.STUDY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="STUDY">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="StudentDataModelStoreContainer">
+          <EntitySet Name="MODULE" EntityType="Self.MODULE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEMESTER" EntityType="Self.SEMESTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT" EntityType="Self.STUDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDY" EntityType="Self.STUDY" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MODULE__STUDENT___2EA5EC27" Association="Self.FK__MODULE__STUDENT___2EA5EC27">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="MODULE" EntitySet="MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEMESTER__STUDEN__318258D2" Association="Self.FK__SEMESTER__STUDEN__318258D2">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="SEMESTER" EntitySet="SEMESTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STUDY__STUDENT_U__345EC57D" Association="Self.FK__STUDY__STUDENT_U__345EC57D">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="STUDY" EntitySet="STUDY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_ID" />
+          </Key>
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MODULE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODULE_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MODULE_CREDITS" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CLASS_HOURS_PER_WEEK" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="STUDENT_USERNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK__MODULE__STUDENT___2EA5EC27" FromRole="MODULE" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="SEMESTER">
+          <Key>
+            <PropertyRef Name="SEMESTER_ID" />
+          </Key>
+          <Property Name="SEMESTER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SEMESTER_WEEKS" Type="Int32" />
+          <Property Name="SEMESTER_START_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SEMESTER_END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="STUDENT_USERNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK__SEMESTER__STUDEN__318258D2" FromRole="SEMESTER" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="STUDENT_USERNAME" />
+          </Key>
+          <Property Name="STUDENT_USERNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STUDENT_PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MODULEs" Relationship="Self.FK__MODULE__STUDENT___2EA5EC27" FromRole="STUDENT" ToRole="MODULE" />
+          <NavigationProperty Name="SEMESTERs" Relationship="Self.FK__SEMESTER__STUDEN__318258D2" FromRole="STUDENT" ToRole="SEMESTER" />
+          <NavigationProperty Name="STUDies" Relationship="Self.FK__STUDY__STUDENT_U__345EC57D" FromRole="STUDENT" ToRole="STUDY" />
+        </EntityType>
+        <EntityType Name="STUDY">
+          <Key>
+            <PropertyRef Name="STUDY_ID" />
+          </Key>
+          <Property Name="STUDY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SELF_STUDY_HOURS_PER_WEEK" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SELECTED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="START_TIME" Type="DateTime" Precision="3" />
+          <Property Name="END_TIME" Type="DateTime" Precision="3" />
+          <Property Name="HOURS_STUDIED" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="STUDY_HOURS_REMAINDING" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CURRENT_WEEK" Type="Int32" />
+          <Property Name="MODULE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STUDENT_USERNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK__STUDY__STUDENT_U__345EC57D" FromRole="STUDY" ToRole="STUDENT" />
+        </EntityType>
+        <Association Name="FK__MODULE__STUDENT___2EA5EC27">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="MODULE" Type="Self.MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="MODULE">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEMESTER__STUDEN__318258D2">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="SEMESTER" Type="Self.SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="SEMESTER">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STUDY__STUDENT_U__345EC57D">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="STUDY" Type="Self.STUDY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Principal>
+            <Dependent Role="STUDY">
+              <PropertyRef Name="STUDENT_USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MODULEs" EntityType="Self.MODULE" />
+          <EntitySet Name="SEMESTERs" EntityType="Self.SEMESTER" />
+          <EntitySet Name="STUDENTs" EntityType="Self.STUDENT" />
+          <EntitySet Name="STUDies" EntityType="Self.STUDY" />
+          <AssociationSet Name="FK__MODULE__STUDENT___2EA5EC27" Association="Self.FK__MODULE__STUDENT___2EA5EC27">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="MODULE" EntitySet="MODULEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEMESTER__STUDEN__318258D2" Association="Self.FK__SEMESTER__STUDEN__318258D2">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="SEMESTER" EntitySet="SEMESTERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STUDY__STUDENT_U__345EC57D" Association="Self.FK__STUDY__STUDENT_U__345EC57D">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="STUDY" EntitySet="STUDies" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(StudentDataModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(StudentDataModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentDataModelStoreContainer" CdmEntityContainer="StudentDataEntities">
+          <EntitySetMapping Name="MODULEs">
+            <EntityTypeMapping TypeName="StudentDataModel.MODULE">
+              <MappingFragment StoreEntitySet="MODULE">
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+                <ScalarProperty Name="MODULE_NAME" ColumnName="MODULE_NAME" />
+                <ScalarProperty Name="MODULE_CREDITS" ColumnName="MODULE_CREDITS" />
+                <ScalarProperty Name="CLASS_HOURS_PER_WEEK" ColumnName="CLASS_HOURS_PER_WEEK" />
+                <ScalarProperty Name="STUDENT_USERNAME" ColumnName="STUDENT_USERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEMESTERs">
+            <EntityTypeMapping TypeName="StudentDataModel.SEMESTER">
+              <MappingFragment StoreEntitySet="SEMESTER">
+                <ScalarProperty Name="SEMESTER_ID" ColumnName="SEMESTER_ID" />
+                <ScalarProperty Name="SEMESTER_WEEKS" ColumnName="SEMESTER_WEEKS" />
+                <ScalarProperty Name="SEMESTER_START_DATE" ColumnName="SEMESTER_START_DATE" />
+                <ScalarProperty Name="SEMESTER_END_DATE" ColumnName="SEMESTER_END_DATE" />
+                <ScalarProperty Name="STUDENT_USERNAME" ColumnName="STUDENT_USERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENTs">
+            <EntityTypeMapping TypeName="StudentDataModel.STUDENT">
+              <MappingFragment StoreEntitySet="STUDENT">
+                <ScalarProperty Name="STUDENT_USERNAME" ColumnName="STUDENT_USERNAME" />
+                <ScalarProperty Name="STUDENT_PASSWORD" ColumnName="STUDENT_PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDies">
+            <EntityTypeMapping TypeName="StudentDataModel.STUDY">
+              <MappingFragment StoreEntitySet="STUDY">
+                <ScalarProperty Name="STUDY_ID" ColumnName="STUDY_ID" />
+                <ScalarProperty Name="SELF_STUDY_HOURS_PER_WEEK" ColumnName="SELF_STUDY_HOURS_PER_WEEK" />
+                <ScalarProperty Name="SELECTED_DATE" ColumnName="SELECTED_DATE" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+                <ScalarProperty Name="HOURS_STUDIED" ColumnName="HOURS_STUDIED" />
+                <ScalarProperty Name="STUDY_HOURS_REMAINDING" ColumnName="STUDY_HOURS_REMAINDING" />
+                <ScalarProperty Name="CURRENT_WEEK" ColumnName="CURRENT_WEEK" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+                <ScalarProperty Name="STUDENT_USERNAME" ColumnName="STUDENT_USERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="StudentDataModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="StudentDataModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="StudentDataModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="StudentDataModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentDataModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="StudentDataModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentDataModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="StudentDataModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="StudentDataModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

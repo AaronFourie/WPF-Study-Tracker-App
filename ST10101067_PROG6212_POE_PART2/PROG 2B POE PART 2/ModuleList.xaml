@@ -1,0 +1,35 @@
+﻿<Window x:Class="PROG_2B_POE_PART_1.ModuleList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROG_2B_POE_PART_1"
+        xmlns:externdll1="clr-namespace:ModuleLibrary1;assembly=ModuleLibrary1" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="ModuleList" Height="844" Width="1070" Background="WhiteSmoke" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Window.DataContext>
+        <externdll1:Modules/>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,-6">
+        <Grid Margin="0,0,0,714">
+            <Image HorizontalAlignment="Left" Height="70" Margin="206,10,0,0" VerticalAlignment="Top" Width="80" Source="/logo.png" RenderTransformOrigin="2.125,0.543"/>
+        </Grid>
+        <DataGrid ItemsSource="{Binding }" x:Name="modules" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,208,0,0" VerticalAlignment="Top" Width="855" Height="462">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Module Code" Width="120" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Module Name" Width="250" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Module Credits" Width="130" Binding="{Binding Credits}" />
+                <DataGridTextColumn Header="Class hours per week" Width="170" Binding="{Binding Hours}"/>
+                <DataGridTextColumn Header="Self Study Hours" Width="140" Binding="{Binding SelfStudyHours}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Continue" Content="Record Work Progress" HorizontalAlignment="Center" Margin="0,690,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold" Height="58" Width="410" Background="#FF37C5BB" BorderBrush="{x:Null}" Click="Continue_Click"/>
+        <TextBox x:Name="ResgisterFormHeading" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Height="68" BorderBrush="#FF383434" Padding="26,0,26,0" Foreground="black" Margin="108,125,108,0" Text="Your Module List"/>
+    </Grid>
+
+
+
+</Window>
