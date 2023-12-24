@@ -1,7 +1,11 @@
 # RC>STUDY : XAML-Study-Tracker-App
 Second year varsity project 
 
-Study tracker app to help a student study time management
+Study tracker app for helping student study time management
+
+Developed in XAML, uses MySQL Database 
+
+Software: Visual Studio, MICROSOFT SQL SERVER MANAGEMENT STUDIO 18  
 
 Instructions on how to compile and run the program:
 
