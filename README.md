@@ -7,7 +7,9 @@ Developed in XAML with MySQL Database
 
 Software: Visual Studio, MICROSOFT SQL SERVER MANAGEMENT STUDIO 18  
 
-Instructions on how to compile and run the program:
+----------------------------------------------------------------------------------------------------
+
+INSTRCUTIONS ON HOW TO RUN AND COMPILE THE PROGRAM
 
 1. Extract and open the zip folder
 
