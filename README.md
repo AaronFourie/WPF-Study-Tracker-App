@@ -44,8 +44,8 @@ SNAPSHOTS
 
 ![Screenshot 2023-12-12 233315](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/44413975-035c-4f1b-ba0f-4c19b4e645a6)
 ![Screenshot 2023-12-12 233439](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/018fa5d4-0606-4738-883a-f5d194c0fde0)
-![Screenshot 2023-12-12 233425](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/eab5de4a-5717-4546-a726-1cc0873afcbf)
 ![Screenshot 2023-12-13 025405](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/77e32af2-b0c6-4a5e-affe-a9f665605def)
+![Screenshot 2023-12-12 233425](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/eab5de4a-5717-4546-a726-1cc0873afcbf)
 ![Screenshot 2023-12-12 233455](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/1a282a6b-aeba-44da-be5a-c6911bb3cf50)
 ![Screenshot 2023-12-13 022921](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/0fe07ff7-a64b-4019-bf1a-8a181965e190)
 ![Screenshot 2023-12-13 023048](https://github.com/AaronFourie/XAML-Study-Tracker-App/assets/103949239/18f61037-5d0c-428e-99a3-fdd8a61e6e2d)
