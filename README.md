@@ -1,4 +1,7 @@
-# STUDY24 : XAML-Study-Tracker-App
+# RC>STUDY : XAML-Study-Tracker-App
+Second year varsity project 
+
+Study tracker app to help a student study time management
 
 Instructions on how to compile and run the program:
 
