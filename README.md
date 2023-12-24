@@ -1,4 +1,4 @@
-# XAML-Study-Tracker-App
+# STUDY24 : XAML-Study-Tracker-App
 
 Instructions on how to compile and run the program:
 
