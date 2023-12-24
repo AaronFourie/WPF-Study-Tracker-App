@@ -8,7 +8,11 @@ Developed in XAML with MySQL Database
 Software: Visual Studio, MICROSOFT SQL SERVER MANAGEMENT STUDIO 18  
 
 ----------------------------------------------------------------------------------------------------
+WPF App with SQL Database Guide
+-------------------------------
+[WPF App with SQL Database.pdf](https://github.com/AaronFourie/ASP.Net-Core-MVC-Disaster-Alleviation-Foundation-Web-App/files/13762654/WPF.App.with.SQL.Database.pdf)
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 INSTRCUTIONS ON HOW TO RUN AND COMPILE THE PROGRAM
 
 1. Extract and open the zip folder
