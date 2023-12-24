@@ -3,7 +3,7 @@ Second year varsity project
 
 Study tracker app for helping student study time management
 
-Developed in XAML, uses MySQL Database 
+Developed in XAML with MySQL Database 
 
 Software: Visual Studio, MICROSOFT SQL SERVER MANAGEMENT STUDIO 18  
 
