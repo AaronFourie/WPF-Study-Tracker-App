@@ -1,4 +1,4 @@
-# RC.STUDY : XAML-Study-Tracker-App
+# RC.STUDY : WPF-Study-Tracker-App
 Second year varsity project 
 
 Study tracker app for helping student study time management
